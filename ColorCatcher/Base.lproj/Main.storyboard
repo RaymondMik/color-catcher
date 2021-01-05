@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NHy-fO-eps">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hck-ep-LoL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,63 +8,99 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Color Catcher-->
-        <scene sceneID="dMe-fE-EKj">
+        <!--Color List View Controller-->
+        <scene sceneID="Lcu-18-ijt">
             <objects>
-                <viewController id="23N-TY-dID" customClass="ViewController" customModule="MyFavColors" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VJI-Sx-zdt">
+                <tableViewController id="n0X-Nx-A3V" customClass="ColorListViewController" customModule="ColorCatcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="igT-bL-5de">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rs4-Pe-y4p">
-                                <rect key="frame" x="20" y="147" width="374" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Take a picture of something to catch the average HEX color">
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="Menlo-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="rZv-Zw-9nV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Color Catcher" id="b8a-wh-MmI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="aJw-KW-5zB">
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NoteCell" textLabel="GX4-g0-CZ9" style="IBUITableViewCellStyleDefault" id="t9x-gF-aGu">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t9x-gF-aGu" id="QpY-cw-66W" customClass="UITableViewCell" customModule="ColorCatcher">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GX4-g0-CZ9">
+                                            <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OfF-ED-lSj" kind="show" identifier="ColorSegue" id="VsU-lZ-GyB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n0X-Nx-A3V" id="0k6-zh-eWE"/>
+                            <outlet property="delegate" destination="n0X-Nx-A3V" id="p2m-pE-Kpb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="s8F-MW-TXR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="VC4-I9-tv4">
                             <connections>
-                                <action selector="addColor" destination="23N-TY-dID" id="QYE-ai-mlB"/>
+                                <action selector="addColor" destination="n0X-Nx-A3V" id="SqM-ZS-3sy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NC7-H6-AJ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2704.347826086957" y="-14.0625"/>
+        </scene>
+        <!--Color View Controller-->
+        <scene sceneID="UsN-QR-98s">
+            <objects>
+                <viewController id="OfF-ED-lSj" customClass="ColorViewController" customModule="ColorCatcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Io-RE-0U3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hex Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3co-Sp-nBN">
+                                <rect key="frame" x="20" y="278" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E2J-1R-JEI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hlP-d6-eRX"/>
                     <connections>
-                        <outlet property="colorNameLabel" destination="rs4-Pe-y4p" id="Kgy-wp-Fzf"/>
+                        <outlet property="contentTextView" destination="3co-Sp-nBN" id="e8j-GL-Unx"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YAH-qR-WUN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oeN-ag-BH0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986.95652173913049" y="118.52678571428571"/>
+            <point key="canvasLocation" x="3576.811594202899" y="-14.0625"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="HtF-qH-l1r">
+        <scene sceneID="tmz-9Z-Zry">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NHy-fO-eps" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hck-ep-LoL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UEX-qY-7dI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qkV-Qk-Abf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="23N-TY-dID" kind="relationship" relationship="rootViewController" id="wWX-rH-WaB"/>
+                        <segue destination="n0X-Nx-A3V" kind="relationship" relationship="rootViewController" id="0mL-Ud-ujV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6dH-qk-EoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYh-KJ-o5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76.811594202898561" y="118.52678571428571"/>
+            <point key="canvasLocation" x="1794.2028985507247" y="-14.0625"/>
         </scene>
     </scenes>
     <resources>

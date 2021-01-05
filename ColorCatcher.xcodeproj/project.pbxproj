@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		4D9BFF49259DF4310013492F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BFF48259DF4310013492F /* AppDelegate.swift */; };
 		4D9BFF4B259DF4310013492F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BFF4A259DF4310013492F /* SceneDelegate.swift */; };
-		4D9BFF4D259DF4310013492F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BFF4C259DF4310013492F /* ViewController.swift */; };
+		4D9BFF4D259DF4310013492F /* ColorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BFF4C259DF4310013492F /* ColorListViewController.swift */; };
 		4D9BFF50259DF4310013492F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BFF4E259DF4310013492F /* Main.storyboard */; };
 		4D9BFF52259DF4320013492F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BFF51259DF4320013492F /* Assets.xcassets */; };
 		4D9BFF55259DF4320013492F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BFF53259DF4320013492F /* LaunchScreen.storyboard */; };
+		4DF6080B25A36A220014C611 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6080A25A36A220014C611 /* Color.swift */; };
+		4DF6081025A50DC60014C611 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6080F25A50DC60014C611 /* ColorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D9BFF45259DF4310013492F /* ColorCatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorCatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9BFF48259DF4310013492F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D9BFF4A259DF4310013492F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4D9BFF4C259DF4310013492F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4D9BFF4C259DF4310013492F /* ColorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewController.swift; sourceTree = "<group>"; };
 		4D9BFF4F259DF4310013492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D9BFF51259DF4320013492F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D9BFF54259DF4320013492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D9BFF56259DF4320013492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DF6080A25A36A220014C611 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4DF6080F25A50DC60014C611 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +62,13 @@
 			children = (
 				4D9BFF48259DF4310013492F /* AppDelegate.swift */,
 				4D9BFF4A259DF4310013492F /* SceneDelegate.swift */,
-				4D9BFF4C259DF4310013492F /* ViewController.swift */,
+				4D9BFF4C259DF4310013492F /* ColorListViewController.swift */,
 				4D9BFF4E259DF4310013492F /* Main.storyboard */,
 				4D9BFF51259DF4320013492F /* Assets.xcassets */,
 				4D9BFF53259DF4320013492F /* LaunchScreen.storyboard */,
 				4D9BFF56259DF4320013492F /* Info.plist */,
+				4DF6080A25A36A220014C611 /* Color.swift */,
+				4DF6080F25A50DC60014C611 /* ColorViewController.swift */,
 			);
 			path = ColorCatcher;
 			sourceTree = "<group>";
@@ -137,9 +143,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D9BFF4D259DF4310013492F /* ViewController.swift in Sources */,
+				4D9BFF4D259DF4310013492F /* ColorListViewController.swift in Sources */,
 				4D9BFF49259DF4310013492F /* AppDelegate.swift in Sources */,
 				4D9BFF4B259DF4310013492F /* SceneDelegate.swift in Sources */,
+				4DF6081025A50DC60014C611 /* ColorViewController.swift in Sources */,
+				4DF6080B25A36A220014C611 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
