@@ -1,59 +1,61 @@
 {
   "images" : [
     {
-      "filename" : "colorCatcher40.png",
+      "filename" : "colorCatcher_40-2.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "colorCatcher60.png",
+      "filename" : "colorCatcher_60-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "colorCatcher58.png",
+      "filename" : "colorCatcher_58-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "colorCatcher87.png",
+      "filename" : "colorCatcher_87-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "colorCatcher80.png",
+      "filename" : "colorCatcher_80-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "colorCatcher120-1.png",
+      "filename" : "colorCatcher_120-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "colorCatcher120.png",
+      "filename" : "colorCatcher_120.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "coloCatcher.png",
+      "filename" : "colorCatcher_180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
+      "filename" : "colorCatcher_20.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
+      "filename" : "colorCatcher_40-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
@@ -64,16 +66,19 @@
       "size" : "29x29"
     },
     {
+      "filename" : "colorCatcher_58.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "colorCatcher_40.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
+      "filename" : "colorCatcher_80.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"

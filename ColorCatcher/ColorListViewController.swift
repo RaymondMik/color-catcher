@@ -114,7 +114,9 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
         
         let averageColor = original.averageColor
         let hexString = averageColor?.toHexString()
+       
         createNote(hexString: "#" + hexString!)
+        self.performSegue(withIdentifier: "ColorSegue", sender: self)
     }
     
     @objc func appMovedToBackground() {
@@ -154,11 +156,11 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return 55.0
     }
 
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return 55.0
     }
     
     // delete action
@@ -181,7 +183,11 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
         if segue.identifier == "ColorSegue" {
             if let destination = segue.destination as?
                 ColorViewController {
+                if tableView.indexPathForSelectedRow != nil {
                     destination.color = colors[tableView.indexPathForSelectedRow!.row]
+                } else {
+                    destination.color = colors[colors.count - 1]
+                }
 
             }
         }
