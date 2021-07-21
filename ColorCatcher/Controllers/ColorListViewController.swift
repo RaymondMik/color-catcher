@@ -66,7 +66,7 @@ extension UITableView {
       
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Helvetica Neue", size: 20)
+        messageLabel.font = UIFont(name: K.Fonts.standard, size: 20)
         messageLabel.sizeToFit()
 
         self.backgroundView = messageLabel
@@ -82,6 +82,16 @@ extension UITableView {
 class ColorListViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var original: UIImage!
     var colors: [Color] = []
+    
+    override func viewDidLoad() {
+        // self.tableView.register(UINib(nibName: "ColorCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reload()
+        // Do any additional setup after loading the view.
+    }
     
     func createNote(hexString: String) {
         let _ = ColorManager.main.create(hexString: hexString)
@@ -106,7 +116,7 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
         picker.dismiss(animated: true)
 
         guard let image = info[.editedImage] as? UIImage else {
-            print("No image found")
+            print(K.Messages.noImage)
             return
         }
         
@@ -116,18 +126,14 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
         let hexString = averageColor?.toHexString()
        
         createNote(hexString: "#" + hexString!)
-        self.performSegue(withIdentifier: "ColorSegue", sender: self)
+        self.performSegue(withIdentifier: K.colorSegue, sender: self)
     }
     
     @objc func appMovedToBackground() {
         self.view.backgroundColor = UIColor.black
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        reload()
-        // Do any additional setup after loading the view.
-    }
+
     
     // define table num of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -137,7 +143,7 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
     // define table size (rows)
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if colors.count == 0 {
-            self.tableView.setEmptyMessage("Take a picture of something to catch the average HEX color")
+            self.tableView.setEmptyMessage(K.Messages.instructions)
         } else {
             self.tableView.restore()
         }
@@ -147,9 +153,10 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
 
     // define table cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
+        // let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! ColorCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
         cell.textLabel?.text = colors[indexPath.row].hex
-        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        cell.textLabel?.font = UIFont(name: K.Fonts.bold, size: 20)
         cell.contentView.backgroundColor = UIColor().toRgbString(colors[indexPath.row].hex)
         
         return cell
@@ -165,7 +172,7 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
     
     // delete action
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
+        let delete = UITableViewRowAction(style: .destructive, title: K.Table.deleteRow) { (action, indexPath) in
             // delete item at indexPath
             ColorManager.main.delete(color: self.colors[indexPath.row])
             self.reload()
@@ -180,7 +187,7 @@ class ColorListViewController: UITableViewController, UIImagePickerControllerDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ColorSegue" {
+        if segue.identifier == K.colorSegue {
             if let destination = segue.destination as?
                 ColorViewController {
                 if tableView.indexPathForSelectedRow != nil {
